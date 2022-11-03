@@ -191,19 +191,15 @@ insert  into `companyPolicies`(`policyID`,`desc`) values
 ('p1029','Telecommuting Policy'),
 ('p1032','Resource and Data Recovery Policy');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+DROP TABLE IF EXISTS `server`;
 CREATE TABLE `server` (
-`sID` varchar(200) NOT NULL,
-`wID` varchar(50), /*webCategory ID */;
-`webCategory` varchar(50),
+  `sID` varchar(200) NOT NULL,
+  `wID` varchar(50),
+  `webCategory` varchar(50),
 PRIMARY KEY (`wID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `departments` */
-
 insert  into `server`(`sID`,`wID`,`webCategory`) values
 ('s01','w01','Entertainment'),
 ('s01','w02','Education'),
@@ -214,17 +210,18 @@ insert  into `server`(`sID`,`wID`,`webCategory`) values
 ('s01','w07','Politics'),
 ('s01','w08','Social Media'),
 ('s01','w09','Life'),
-('s01','w10','Computer Science'),
+('s01','w10','Computer Science');
 
+
+DROP TABLE IF EXISTS `request`;
 CREATE TABLE `request` (
 `requestID` varchar(200) NOT NULL,
-`reason` varchar(50), /*webCategory ID */;
+`reason` varchar(50), /*webCategory ID */
 `status` varchar(50),
 `URL` varchar(50),
 PRIMARY KEY (`requestID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `departments` */
 
 insert  into `request`(`requestID`,`reason`,`status`,`URL`) values
 ('r1','For business purpose','PENDING','www.google.com'),
@@ -236,29 +233,50 @@ insert  into `request`(`requestID`,`reason`,`status`,`URL`) values
 ('r7','For business purpose','APPROVED','www.google.com'),
 ('r8','For research purpose','REJECT','www.facebook.com'),
 ('r9','For business purpose','PENDING','www.google.com'),
-('r10','For research purpose','REJECT','www.tesla.com'),
+('r10','For research purpose','REJECT','www.tesla.com');
 
 
+DROP TABLE IF EXISTS `response`;
 CREATE TABLE `response` (
 `responseID` varchar(200) NOT NULL,
-`policyID` varchar(50), /*webCategory ID */;
+`policyID` varchar(50), /*webCategory ID */
 `message` varchar(50),
 PRIMARY KEY (`responseID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `departments` */
 
-insert  into `request`(`responseID`,`policyID`,`message`) values
-('rp1','pid01','REJECT'),
+insert  into `response`(`responseID`,`policyID`,`message`) values
+('rp1','p102', 'Violate policy'),
+('rp2','p102', 'Violate policy'),
+('rp3','p102', 'Violate policy'),
+('rp4','p102', 'Violate policy'),
+('rp5','p102', 'Violate policy'),
+('rp6','p102', 'Violate policy'),
+('rp7','p102', 'Violate policy'),
+('rp8','p102', 'Violate policy'),
+('rp9','p102', 'Violate policy');
 
 
+DROP TABLE IF EXISTS `restrictedWebsites`;
 CREATE TABLE `restrictedWebsites` (
 `wid` varchar(200) NOT NULL,
-`categoryid` varchar(50), /*webCategory ID */;
 `url` varchar(50),
 PRIMARY KEY (`wid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `departments` */
+insert  into `restrictedWebsites`(`wid`,`url`) values
+('w1001', 'https://www.grammrly.com/'),
+('w1002', 'https://www.facebook.com/'),
+('w1003', 'https://www.instagram.com/'),
+('w1004', 'https://www.facebook.com/'),
+('w1005', 'https://www.youtube.com/'),
+('w1006', 'https://www.dropbox.com/'),
+('w1007', 'https://www.netflix.com/'),
+('w1008', 'https://www.twitter.com/'),
+('w1009', 'https://www.porkerstarts.com/'),
+('w1010', 'https://www.espn.com/');
 
-insert  into `request`(`wid`,`categoryid`,`url`) values
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
