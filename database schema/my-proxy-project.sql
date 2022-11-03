@@ -195,3 +195,70 @@ insert  into `companyPolicies`(`policyID`,`desc`) values
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+CREATE TABLE `server` (
+`sID` varchar(200) NOT NULL,
+`wID` varchar(50), /*webCategory ID */;
+`webCategory` varchar(50),
+PRIMARY KEY (`wID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `departments` */
+
+insert  into `server`(`sID`,`wID`,`webCategory`) values
+('s01','w01','Entertainment'),
+('s01','w02','Education'),
+('s01','w03','Economic'),
+('s01','w04','Non-profit'),
+('s01','w05','Business'),
+('s01','w06','Science'),
+('s01','w07','Politics'),
+('s01','w08','Social Media'),
+('s01','w09','Life'),
+('s01','w10','Computer Science'),
+
+CREATE TABLE `request` (
+`requestID` varchar(200) NOT NULL,
+`reason` varchar(50), /*webCategory ID */;
+`status` varchar(50),
+`URL` varchar(50),
+PRIMARY KEY (`requestID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `departments` */
+
+insert  into `request`(`requestID`,`reason`,`status`,`URL`) values
+('r1','For business purpose','PENDING','www.google.com'),
+('r2','For research purpose','APPROVED','www.SJSU.com'),
+('r3','For business purpose','REJECT','www.youtube.com'),
+('r4','For research purpose','APPROVED','www.linkedin.com'),
+('r5','For business purpose','PENDING','www.google.com'),
+('r6','For research purpose','REJECT','www.craiglist.com'),
+('r7','For business purpose','APPROVED','www.google.com'),
+('r8','For research purpose','REJECT','www.facebook.com'),
+('r9','For business purpose','PENDING','www.google.com'),
+('r10','For research purpose','REJECT','www.tesla.com'),
+
+
+CREATE TABLE `response` (
+`responseID` varchar(200) NOT NULL,
+`policyID` varchar(50), /*webCategory ID */;
+`message` varchar(50),
+PRIMARY KEY (`responseID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `departments` */
+
+insert  into `request`(`responseID`,`policyID`,`message`) values
+('rp1','pid01','REJECT'),
+
+
+CREATE TABLE `restrictedWebsites` (
+`wid` varchar(200) NOT NULL,
+`categoryid` varchar(50), /*webCategory ID */;
+`url` varchar(50),
+PRIMARY KEY (`wid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `departments` */
+
+insert  into `request`(`wid`,`categoryid`,`url`) values
