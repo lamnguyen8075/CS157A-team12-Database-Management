@@ -33,3 +33,19 @@ Java, SQL, HTML, CSS, JavaScript
   The system would allow the admin response to the request and update the access of the requester in their account.
 - Login and logout 
   - The admin is able to login and logout the system when necessary.
+
+### For users
+- View user profile information
+  - Users are able to view the list of websites that they have the permission to access.
+  System is able to show the list of websites for a specific user when the user log-in to their account.
+- Submit access request 
+  - If users need to access any website that they have not granted access to yet, they can request access to admin with proper reason. 
+- Test web access
+  - Users are able to ping the websites that are listed in their access.
+    System can return the list of websites that the user has the permission to access. 
+- Login and logout 
+  - Users can login to see their permission as well as request a access if necessary
+    The system will check for the credential to allow the log-in.
+
+## 4. ERD Diagram
+<img src="Project-Images\Entity_relationship.png">
