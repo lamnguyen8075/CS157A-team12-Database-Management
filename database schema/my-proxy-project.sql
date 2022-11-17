@@ -191,19 +191,15 @@ insert  into `companyPolicies`(`policyID`,`desc`) values
 ('p1029','Telecommuting Policy'),
 ('p1032','Resource and Data Recovery Policy');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+DROP TABLE IF EXISTS `server`;
 CREATE TABLE `server` (
-`sID` varchar(200) NOT NULL,
-`wID` varchar(50), /*webCategory ID */;
-`webCategory` varchar(50),
+  `sID` varchar(200) NOT NULL,
+  `wID` varchar(50),
+  `webCategory` varchar(50),
 PRIMARY KEY (`wID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `departments` */
-
 insert  into `server`(`sID`,`wID`,`webCategory`) values
 ('s01','w01','Entertainment'),
 ('s01','w02','Education'),
@@ -214,17 +210,18 @@ insert  into `server`(`sID`,`wID`,`webCategory`) values
 ('s01','w07','Politics'),
 ('s01','w08','Social Media'),
 ('s01','w09','Life'),
-('s01','w10','Computer Science'),
+('s01','w10','Computer Science');
 
+
+DROP TABLE IF EXISTS `request`;
 CREATE TABLE `request` (
 `requestID` varchar(200) NOT NULL,
-`reason` varchar(50), /*webCategory ID */;
+`reason` varchar(50), /*webCategory ID */
 `status` varchar(50),
 `URL` varchar(50),
 PRIMARY KEY (`requestID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `departments` */
 
 insert  into `request`(`requestID`,`reason`,`status`,`URL`) values
 ('r1','For business purpose','PENDING','www.google.com'),
@@ -236,29 +233,130 @@ insert  into `request`(`requestID`,`reason`,`status`,`URL`) values
 ('r7','For business purpose','APPROVED','www.google.com'),
 ('r8','For research purpose','REJECT','www.facebook.com'),
 ('r9','For business purpose','PENDING','www.google.com'),
-('r10','For research purpose','REJECT','www.tesla.com'),
+('r10','For research purpose','REJECT','www.tesla.com');
 
 
+DROP TABLE IF EXISTS `response`;
 CREATE TABLE `response` (
 `responseID` varchar(200) NOT NULL,
-`policyID` varchar(50), /*webCategory ID */;
+`policyID` varchar(50), /*webCategory ID */
 `message` varchar(50),
 PRIMARY KEY (`responseID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `departments` */
 
-insert  into `request`(`responseID`,`policyID`,`message`) values
-('rp1','pid01','REJECT'),
+insert  into `response`(`responseID`,`policyID`,`message`) values
+('rp1','p102', 'Violate policy'),
+('rp2','p102', 'Violate policy'),
+('rp3','p102', 'Violate policy'),
+('rp4','p102', 'Violate policy'),
+('rp5','p102', 'Violate policy'),
+('rp6','p102', 'Violate policy'),
+('rp7','p102', 'Violate policy'),
+('rp8','p102', 'Violate policy'),
+('rp9','p102', 'Violate policy');
 
 
+DROP TABLE IF EXISTS `restrictedWebsites`;
 CREATE TABLE `restrictedWebsites` (
 `wid` varchar(200) NOT NULL,
-`categoryid` varchar(50), /*webCategory ID */;
 `url` varchar(50),
 PRIMARY KEY (`wid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `departments` */
+insert  into `restrictedWebsites`(`wid`,`url`) values
+('w1001', 'https://www.grammrly.com/'),
+('w1002', 'https://www.facebook.com/'),
+('w1003', 'https://www.instagram.com/'),
+('w1004', 'https://www.facebook.com/'),
+('w1005', 'https://www.youtube.com/'),
+('w1006', 'https://www.dropbox.com/'),
+('w1007', 'https://www.netflix.com/'),
+('w1008', 'https://www.twitter.com/'),
+('w1009', 'https://www.porkerstarts.com/'),
+('w1010', 'https://www.espn.com/');
 
-insert  into `request`(`wid`,`categoryid`,`url`) values
+# Create table has which is the relationsip between companies and department
+DROP TABLE IF EXISTS `has`;
+CREATE TABLE `has` (
+`companyID` varchar(200) NOT NULL,
+`depID` varchar(50),
+PRIMARY KEY (`companyId`,`depID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+# Create table associates which is the relationsip between companies and companyPolicy
+DROP TABLE IF EXISTS `associates`;
+CREATE TABLE `associates` (
+`companyID` varchar(200) NOT NULL,
+`policyID` varchar(50),
+PRIMARY KEY (`companyId`,`policyID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+# Create table belongs to which is the relationsip between department and employees
+DROP TABLE IF EXISTS `belongsTo`;
+CREATE TABLE `belongsTo` (
+`depID` varchar(200) NOT NULL,
+`employeeID` varchar(50),
+PRIMARY KEY (`depID`,`employeeID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+# Create table review to which is the relationsip between account and policy
+DROP TABLE IF EXISTS `review`;
+CREATE TABLE `review` (
+`accountID` varchar(200) NOT NULL,
+`policyID` varchar(50),
+PRIMARY KEY (`accountID`,`policyID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+# Create table createdBy to which is the relationsip between admins and users
+DROP TABLE IF EXISTS `createdBy`;
+CREATE TABLE `createdBy` (
+`adminID` varchar(200) NOT NULL,
+`userID` varchar(50),
+PRIMARY KEY (`adminID`,`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+# Create table send to which is the relationsip between user and request
+DROP TABLE IF EXISTS `sends`;
+CREATE TABLE `sends` (
+`userID` varchar(200) NOT NULL,
+`requestID` varchar(50),
+PRIMARY KEY (`userID`,`requestID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+# Create table process to which is the relationsip between user and request
+DROP TABLE IF EXISTS `processes`;
+CREATE TABLE `processes` (
+`adminID` varchar(200) NOT NULL,
+`requestID` varchar(50),
+PRIMARY KEY (`adminID`,`requestID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+# Create table resolves to which is the relationsip between response and request
+DROP TABLE IF EXISTS `resolves`;
+CREATE TABLE `resolves` (
+`responseID` varchar(200) NOT NULL,
+`requestID` varchar(50),
+PRIMARY KEY (`responseID`,`requestID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+# Create table checkAccess to which is the relationsip between restrictred Websites and server
+DROP TABLE IF EXISTS `checkAccess`;
+CREATE TABLE `checkAccess` (
+`wID` varchar(200) NOT NULL,
+`sID` varchar(50),
+PRIMARY KEY (`wID`,`sID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
