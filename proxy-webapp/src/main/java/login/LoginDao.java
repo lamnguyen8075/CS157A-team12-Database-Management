@@ -1,32 +1,33 @@
 package login;
 
 import java.sql.*;
+import connector.SQLDatabaseConnection;
 
 public class LoginDao {
 
-    public boolean validate(LoginBean loginBean) throws ClassNotFoundException {
-        boolean status = false;
+    public static boolean validate(String user, String password) {
+        Connection con = null;
+        PreparedStatement ps = null;
 
-        Class.forName("com.mysql.jdbc.Driver");
+        try {
+            con = SQLDatabaseConnection.getConnection();
+            ps = con.prepareStatement("Select email,pwd from users where email = ? and pwd = ?");
+            ps.setString(1, user);
+            ps.setString(2, password);
 
-        try (Connection connection = DriverManager
-                .getConnection("jdbc:mysql://localhost:3306/proxy?useSSL=false", "root", "thisIsMyPassword");
+            ResultSet rs = ps.executeQuery();
 
-             // Step 2:Create a statement using connection object
-             PreparedStatement preparedStatement = connection
-                     .prepareStatement("select * from users where name = ? and pwd = ? ")) {
-            preparedStatement.setString(2, loginBean.getUsername());
-            preparedStatement.setString(4, loginBean.getPassword());
-
-            System.out.println(preparedStatement);
-            ResultSet rs = preparedStatement.executeQuery();
-            status = rs.next();
-
-        } catch (SQLException e) {
-            // process sql exception
-            printSQLException(e);
+            if (rs.next()) {
+                //result found, means valid inputs
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Login error -->" + ex.getMessage());
+            return false;
+        } finally {
+            SQLDatabaseConnection.close(con);
         }
-        return status;
+        return false;
     }
 
     private void printSQLException(SQLException ex) {

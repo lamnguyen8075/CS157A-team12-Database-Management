@@ -46,7 +46,7 @@
     }
 </style>
 <body>
-<header><h1 style="text-align: center;">MY PROXY</h1></header>
+<header><h1 style="text-align: center;">Masfsdfasf</h1></header>
 <div id="main">
     <article><h2></h2></article>
     <nav>

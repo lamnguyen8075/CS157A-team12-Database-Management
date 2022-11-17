@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <%@page import="net.javaguides.login.database.*"%>
+<%@page import="connector.SQLDatabaseConnection"%>
+
+DataConnect
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +12,7 @@
 </head>
 <body>
 <div align="center">
-    <h1>You have logined successfully</h1>
+    <h1>You have login successfully</h1>
 </div>
 </body>
 </html>

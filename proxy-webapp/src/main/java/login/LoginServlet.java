@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-
 /**
  * @email Ramesh Fadatare
  */
@@ -30,18 +29,14 @@ public class LoginServlet extends HttpServlet {
         loginBean.setUsername(username);
         loginBean.setPassword(password);
 
-        try {
-            if (loginDao.validate(loginBean)) {
-                //HttpSession session = request.getSession();
-                // session.setAttribute("username",username);
-                response.sendRedirect("loginsuccess.jsp");
-            } else {
-                HttpSession session = request.getSession();
-                //session.setAttribute("user", username);
-                //response.sendRedirect("login.jsp");
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        if (loginDao.validate(username,password)) {
+            //HttpSession session = request.getSession();
+            // session.setAttribute("username",username);
+            response.sendRedirect("loginsuccess.jsp");
+        } else {
+            HttpSession session = request.getSession();
+            //session.setAttribute("user", username);
+            //response.sendRedirect("login.jsp");
         }
     }
 }

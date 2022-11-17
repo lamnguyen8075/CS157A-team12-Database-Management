@@ -12,7 +12,7 @@ import java.io.IOException;
  * @email Ramesh Fadatare
  */
 
-@WebServlet("/login")
+@WebServlet("/response")
 public class ResponseServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ResponseDao responseDao;
