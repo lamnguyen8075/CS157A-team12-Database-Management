@@ -102,7 +102,7 @@
 <body>
 <header><h1 style="text-align: center;font-size:200%;">MY PROXY</h1></header><div id="main">
     <article>
-        <h1 style="text-align: center;">PROFILE</h1>
+        <h1 style="text-align: center;">PROFILE :: USER</h1>
         <form action="/action_page.php" method="post">
             <div class="container">
                 <label for="username"><b>Username</b></label>

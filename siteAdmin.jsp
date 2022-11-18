@@ -102,7 +102,7 @@
 <body>
 <header><h1 style="text-align: center;font-size:200%;">MY PROXY</h1></header><div id="main">
     <article>
-        <h1 style="text-align: center;">PROFILE</h1>
+        <h1 style="text-align: center;">PROFILE :: ADMIN</h1>
         <form action="/action_page.php" method="post">
             <div class="container">
                 <label for="username"><b>Username</b></label>
@@ -126,10 +126,20 @@
         </form>
 
         <form action="/login.jsp">
-            <table style="width:100%">
+            <table style="width:25%">
+
                 <tr>
-                    <td style="width:10%"><input class="button button1" type="submit" value="TEST CONNECTION"></td>
-                    <td><input style="width:400px;padding: 19px 33px;margin: 4px 2px;" type="text" id="url" name="url" value="url"></td>
+                    <th colspan="3"><h3>PENDING REQUEST</h3></th>
+                </tr>
+                <tr>
+                    <th>URL</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>https://www.w3schools.com/</td>
+                    <th style="width:15px;"><input type="submit" value="Approve"></th>
+                    <th style="width:15px;"><input type="submit" value="Decline"></th>
                 </tr>
             </table>
         </form>
@@ -141,6 +151,8 @@
     <a href="http://localhost:8080/proxy_webapp_war/profile.jsp">PROFILE</a>
     <a href="http://localhost:8080/proxy_webapp_war/login.jsp">LOGIN</a>
     <a href="http://localhost:8080/proxy_webapp_war/register.jsp">REGISTER</a>
+    <a href="http://localhost:8080/proxy_webapp_war/siteAdmin.jsp">ADMIN</a>
+    <a href="http://localhost:8080/proxy_webapp_war/siteUser.jsp">USER</a>
 </footer>
 </body>
 </html>

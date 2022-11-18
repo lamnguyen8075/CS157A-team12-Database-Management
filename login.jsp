@@ -82,7 +82,7 @@
     <article><h2></h2></article>
     <nav>
         <h1 style="text-align: center;">LOG IN</h1>
-        <form action="/action_page.php" method="post">
+        <form method="post" action="validate.jsp">
             <div class="container">
                 <label for="username"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="username" required>
