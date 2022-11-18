@@ -49,3 +49,21 @@ Java, SQL, HTML, CSS, JavaScript
 
 ## 4. ERD Diagram
 <img src="Project-Images\Entity_relationship.png">
+
+
+## 5. USER INTERFACE
+- Registration
+![Screen Shot 2022-11-17 at 11 46 00 PM](https://user-images.githubusercontent.com/48584294/202648650-6b4b6670-dc23-4254-8be7-3471a4719c91.png)
+
+- Login
+![Screen Shot 2022-11-17 at 11 45 26 PM](https://user-images.githubusercontent.com/48584294/202648584-98f713e6-05da-4384-a5c7-841a7987725d.png)
+
+- ADMIN site
+![Screen Shot 2022-11-17 at 11 46 54 PM](https://user-images.githubusercontent.com/48584294/202648791-d5ef6476-6e8a-4fa3-a723-f6fa5b8b932a.png)
+
+- USER site
+![Screen Shot 2022-11-17 at 11 47 12 PM](https://user-images.githubusercontent.com/48584294/202648847-11f80175-60f6-4b99-a228-d5582c3d5b9b.png)
+
+
+
+
