@@ -9,6 +9,7 @@
 <!doctype html>
 <title>My Proxy</title>
 <style>
+
     * {
         box-sizing: border-box;
     }
@@ -44,62 +45,97 @@
         font-style:normal;
         font-size: 15px
     }
-    .card {
-        box-shadow: 0 4px 8px 10px rgba(0, 0, 0, 0.2);
-        max-width: 300px;
-        margin: auto;
-        text-align: center;
-        font-family: arial;
-    }
-
-    .title {
-        color: grey;
-        font-size: 18px;
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
     }
 
     button {
-        border: none;
-        outline: 0;
-        display: inline-block;
-        padding: 8px;
+        background-color: #04AA6D;
         color: white;
-        background-color: #000;
-        text-align: center;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
         cursor: pointer;
         width: 100%;
-        font-size: 18px;
     }
 
-    a {
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .container {
+        padding: 16px;
+    }
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+    .button {
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
         text-decoration: none;
-        font-size: 22px;
-        color: black;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
     }
 
-    button:hover, a:hover {
-        opacity: 0.7;
+    .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50;
+    }
+
+    .button1:hover {
+        background-color: #4CAF50;
+        color: white;
     }
 </style>
 <body>
 <header><h1 style="text-align: center;">MY PROXY</h1></header>
 <div id="main">
     <article>
-        <div class="card">
-            <img src="img/ava.jpeg" alt="John" style="width:100%">
-            <h1>John Doe</h1>
-            <p class="title">CEO & HELLO, Example</p>
-            <p class="title">jd@email.email</p>
-            <p>Harvard University</p>
-            <div style="margin: 24px 0;">
-                <a href="#"><i class="fa fa-dribbble"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-facebook"></i></a>
+        <h1 style="text-align: center;">PROFILE</h1>
+        <form action="/action_page.php" method="post">
+            <div class="container">
+                <label for="username"><b>Username</b></label>
+                <input type="text"  name="uname" readonly>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" name="psw" readonly>
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" name="email" readonly>
+
+                <label for="role"><b>Role</b></label>
+                <input type="text" name="role" readonly>
+
+                <label for="department"><b>Department</b></label>
+                <input type="text" name="department" readonly>
+
+                <label for="company"><b>Company</b></label>
+                <input type="text" name="company" readonly>
             </div>
-        </div>
+        </form>
+
+        <form action="/action_page.php">
+            <table style="width:100%">
+                <tr>
+                    <td style="width:10%"><input class="button button1" type="submit" value="TEST CONNECTION"></td>
+                    <td><input style="width:400px;padding: 19px 33px;margin: 4px 2px;" type="text" id="url" name="url" value="url"></td>
+                </tr>
+            </table>
+        </form>
     </article>
     <nav>
-
     </nav>
 </div>
 <footer>Footer</footer>
