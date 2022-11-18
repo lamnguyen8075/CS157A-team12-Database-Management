@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="proxy">
+    <output-path>$PROJECT_DIR$/out/artifacts/proxy</output-path>
+    <root id="root" />
+  </artifact>
+</component>
