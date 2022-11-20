@@ -107,6 +107,11 @@
         </form>
     </nav>
 </div>
-<footer>Footer</footer>
-</body>
+<footer>
+    <a href="http://localhost:8080/proxy_webapp_war/profile.jsp">PROFILE</a>
+    <a href="http://localhost:8080/proxy_webapp_war/login.jsp">LOGIN</a>
+    <a href="http://localhost:8080/proxy_webapp_war/register.jsp">REGISTER</a>
+    <a href="http://localhost:8080/proxy_webapp_war/siteAdmin.jsp">ADMIN</a>
+    <a href="http://localhost:8080/proxy_webapp_war/siteUser.jsp">USER</a>
+</footer></body>
 </html>

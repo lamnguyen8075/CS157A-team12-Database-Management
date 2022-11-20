@@ -133,6 +133,27 @@
                 </tr>
             </table>
         </form>
+        <table style="width:25%">
+
+            <tr>
+                <th colspan="3"><h3>REQUEST HISTORY</h3></th>
+            </tr>
+            <tr>
+                <th>URL</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>https://www.w3schools.com/</td>
+                <th style="width:15px;"></th>
+                <th style="width:15px;">Approved</th>
+            </tr>
+            <tr>
+                <td>https://www.w3schools.com/</td>
+                <th style="width:15px;"></th>
+                <th style="width:15px;">Restricted</th>
+            </tr>
+        </table>
     </article>
     <nav>
     </nav>
@@ -141,6 +162,8 @@
     <a href="http://localhost:8080/proxy_webapp_war/profile.jsp">PROFILE</a>
     <a href="http://localhost:8080/proxy_webapp_war/login.jsp">LOGIN</a>
     <a href="http://localhost:8080/proxy_webapp_war/register.jsp">REGISTER</a>
+    <a href="http://localhost:8080/proxy_webapp_war/siteAdmin.jsp">ADMIN</a>
+    <a href="http://localhost:8080/proxy_webapp_war/siteUser.jsp">USER</a>
 </footer>
 </body>
 </html>
