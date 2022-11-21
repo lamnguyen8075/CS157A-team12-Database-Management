@@ -1,20 +1,34 @@
-<%@ page import ="java.sql.*" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.SQLException" %>
 <%
-  try{
+  String db = "cs157a";
+  String user; // assumes database name is the same as username
+  user = "root";
+  String pwd = "Conheo130695";
+  try {
+
+
     String username = request.getParameter("username");
     String password = request.getParameter("password");
-    Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
-    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proxy?" + "user=root&password=Conheo130695");
-    PreparedStatement pst = conn.prepareStatement("Select name,email from login where user=? and pass=?");
+
+    java.sql.Connection conn;
+    Class.forName("com.mysql.jdbc.Driver");
+    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/my_proxy?autoReconnect=true&useSSL=false",user, pwd);
+    out.println(db + " database successfully opened.<br/><br/>");
+
+    PreparedStatement pst = conn.prepareStatement("Select username,password from accounts where userName=? and password=?");
     pst.setString(1, username);
     pst.setString(2, password);
     ResultSet rs = pst.executeQuery();
-    if(rs.next())
-      out.println("Valid login credentials");
+    if(rs.next()){
+      session.setAttribute("sid",username);
+      response.sendRedirect("/proxy_webapp_war/login.jsp");
+    }
     else
-      out.println("Invalid login credentials");
-  }
-  catch(Exception e){
-    out.println("Something went wrong !! Please try again");
+      response.sendRedirect("/proxy_webapp_war/register.jsp");
+  } catch(SQLException e) {
+    out.println("SQLException caught: " + e.getMessage());
   }
 %>

@@ -77,13 +77,24 @@
     }
 </style>
 <body>
+
 <header><h1 style="text-align: center;">MY PROXY</h1></header>
+
 <div id="main">
-    <article><h2></h2></article>
+    <article>
+
+        <%
+        String uid = (String)session.getAttribute("sid");
+        if (uid != null) {
+            out.println(" <h1>You have successfully created the Session of User : " +uid+"</h1>");
+        }%>
+
+   </article>
     <nav>
         <h1 style="text-align: center;">LOG IN</h1>
         <form method="post" action="validate.jsp">
             <div class="container">
+
                 <label for="username"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="username" required>
 
@@ -95,6 +106,7 @@
         </form>
     </nav>
 </div>
+
 <footer>
     <a href="http://localhost:8080/proxy_webapp_war/profile.jsp">PROFILE</a>
     <a href="http://localhost:8080/proxy_webapp_war/login.jsp">LOGIN</a>
