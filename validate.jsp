@@ -6,7 +6,7 @@
   String db = "cs157a";
   String user; // assumes database name is the same as username
   user = "root";
-  String pwd = "Conheo130695";
+  String pwd = "xx";
   try {
 
 
