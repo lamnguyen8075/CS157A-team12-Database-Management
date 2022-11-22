@@ -29,6 +29,6 @@
     else
       response.sendRedirect("/proxy_webapp_war/register.jsp");
   } catch(SQLException e) {
-    out.println("SQLException caught: " + e.getMessage());
+      out.println("SQLException caught: " + e.getMessage());
   }
 %>

@@ -79,37 +79,22 @@
 <body>
 
 <header><h1 style="text-align: center;">MY PROXY</h1></header>
-
-<div id="main">
-    <article>
-
         <%
-        String uid = (String)session.getAttribute("sid");
-        if (uid != null) {
-            out.println(" <h1>You have successfully created the Session of User : " +uid+"</h1>");
-        }%>
+            String uid = (String)session.getAttribute("sid");
+            if (uid != null) {
+                response.sendRedirect("/proxy_webapp_war/siteUser.jsp");
+            }
+            else{%>
+                <jsp:include page="loginComponent.jsp" />
+        <%
+            }
+        %>
 
-   </article>
-    <nav>
-        <h1 style="text-align: center;">LOG IN</h1>
-        <form method="post" action="validate.jsp">
-            <div class="container">
-
-                <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required>
-
-                <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" required>
-
-                <button type="submit">Login</button>
-            </div>
-        </form>
-    </nav>
-</div>
 
 <footer>
     <a href="http://localhost:8080/proxy_webapp_war/profile.jsp">PROFILE</a>
     <a href="http://localhost:8080/proxy_webapp_war/login.jsp">LOGIN</a>
+    <a href="http://localhost:8080/proxy_webapp_war/logout.jsp">LOGOUT</a>
     <a href="http://localhost:8080/proxy_webapp_war/register.jsp">REGISTER</a>
     <a href="http://localhost:8080/proxy_webapp_war/siteAdmin.jsp">ADMIN</a>
     <a href="http://localhost:8080/proxy_webapp_war/siteUser.jsp">USER</a>
