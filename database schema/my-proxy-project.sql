@@ -125,7 +125,7 @@ DROP TABLE IF EXISTS `adminAccounts`;
 CREATE TABLE `adminAccounts` (
   `accountID` int(11) NOT NULL,
   `adminID` varchar(20) NOT NULL,
-  PRIMARY KEY (`accountID`)
+  PRIMARY KEY (`accountID`, `adminID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `adminAccounts` */
@@ -149,7 +149,7 @@ DROP TABLE IF EXISTS `userAccounts`;
 CREATE TABLE `userAccounts` (
   `accountID` int(11) NOT NULL,
   `userID` varchar(20) NOT NULL,
-  PRIMARY KEY (`accountID`)
+  PRIMARY KEY (`accountID`, `userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `adminAccounts` */
@@ -219,6 +219,7 @@ CREATE TABLE `request` (
 `reason` varchar(50), /*webCategory ID */
 `status` varchar(50),
 `URL` varchar(50),
+`userID` varchar(50) UNIQUE,
 PRIMARY KEY (`requestID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
