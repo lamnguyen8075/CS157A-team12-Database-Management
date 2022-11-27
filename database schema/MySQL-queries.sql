@@ -1,6 +1,6 @@
 # When the request sends by a users, the request table will be updated, the request id will automated apply increment 
 INSERT INTO request (requestID, reason, status, URL)
-VALUES(1009,'','IN PROCESS','');
+VALUES(1009,'','PENDING','');
 
 # If the request is approved, the reponse will be updated and restriced website will be updated
 INSERT INTO response (responseID, policyID, message)
