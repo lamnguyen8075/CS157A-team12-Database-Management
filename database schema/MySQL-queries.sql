@@ -1,12 +1,12 @@
-<<<<<<< HEAD
+
 # When the request sends by a users, the request table will be updated, the request id will automated apply increment, the send relationship table will be updated
 INSERT INTO request (requestID, reason, status, URL, userID)
 VALUES(1010,'','IN PROCESS','', 120);
-=======
+
 # When the request sends by a users, the request table will be updated, the request id will automated apply increment 
 INSERT INTO request (requestID, reason, status, URL)
 VALUES(1009,'','PENDING','');
->>>>>>> 8ac84c6cf44be245b761c2a9060854afea1ae03a
+
 
 # If the request is approved, the reponse will be updated and restriced website will be updated
 INSERT INTO response (responseID, policyID, message)

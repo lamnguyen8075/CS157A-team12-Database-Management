@@ -11,31 +11,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`my_proxy` /*!40100 DEFAULT CHARACTER SE
 
 USE `my_proxy`;
 
-/*Table structure for table `companies` */
-
-DROP TABLE IF EXISTS `companies`;
-
-CREATE TABLE `companies` (
-  `companyID` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  PRIMARY KEY (`companyID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `companies` */
-
-insert  into `companies`(`companyID`,`name`) values 
-(1001, 'Apple'),
-(1002, 'Amazon'),
-(1003, 'Google'),
-(1004, 'Medalia'),
-(1005, 'Costco'),
-(1006, 'Tesla'),
-(1007, 'Microsoft Corporation'),
-(1008, 'Nvidia Corporation'),
-(1009, 'ALPHABET Inc.'),
-(1010, ' Walmart Inc.');
-
-
 /*Table structure for table `departments` */
 
 DROP TABLE IF EXISTS `departments`;
@@ -99,23 +74,23 @@ DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE `accounts` (
   `accountID` int(11) NOT NULL,
   `userName` int(15) NOT NULL,
-  `password` int(11) NOT NULL,
+  `password` VARCHAR(250) NOT NULL,
   `timeStamp` date NOT NULL,
   PRIMARY KEY (`accountID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `accounts` */
 
 insert  into `accounts`(`accountID`,`userName`,`password`,`timeStamp`) values 
-(120,100103,'','2022-10-06'),
-(130,100106,'','2003-10-06'),
-(140,100109,'','2003-10-06'),
-(150,100112,'','2003-10-06'),
-(160,100115,'','2003-10-06'),
-(170,100118,'','2003-10-06'),
-(180,100121,'','2003-10-06'),
-(190,100124,'','2003-10-06'),
-(200,100127,'','2003-10-06');
+(120,100103,'testing','2022-10-06'),
+(130,100106,'testing','2003-10-06'),
+(140,100109,'testing','2003-10-06'),
+(150,100112,'testing','2003-10-06'),
+(160,100115,'testing','2003-10-06'),
+(170,100118,'testing','2003-10-06'),
+(180,100121,'testing','2003-10-06'),
+(190,100124,'testing','2003-10-06'),
+(200,100127,'testing','2003-10-06');
 
 
 /*Table structure for table `adminAccounts` */
@@ -165,31 +140,6 @@ insert  into `userAccounts`(`accountID`,`userID`) values
 (200,'user9'),
 (210,'user10');
 
-
-/*Table structure for table `companyPolicies` */
-
-DROP TABLE IF EXISTS `companyPolicies`;
-
-CREATE TABLE `companyPolicies` (
-  `policyID` varchar(200) NOT NULL,
-  `desc` varchar(50),
-  PRIMARY KEY (`policyID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `departments` */
-
-insert  into `companyPolicies`(`policyID`,`desc`) values 
-('p102','Digital Security Policy'),
-('p105','Physical Security Policy'),
-('p108','Access Control Policy'),
-('p1011','Transmission of Sensitive Data Policy'),
-('p1014','Security Awareness and Training Policy'),
-('p1017','Encryption Policy'),
-('p1020','Mobile Device Security Policy'),
-('p1023','System Monitoring Policy'),
-('p1026','Hardware Inventory Policy'),
-('p1029','Telecommuting Policy'),
-('p1032','Resource and Data Recovery Policy');
 
 DROP TABLE IF EXISTS `server`;
 CREATE TABLE `server` (
@@ -277,22 +227,6 @@ insert  into `restrictedWebsites`(`wid`,`url`) values
 ('w1009', 'https://www.porkerstarts.com/'),
 ('w1010', 'https://www.espn.com/');
 
-# Create table has which is the relationsip between companies and department
-DROP TABLE IF EXISTS `has`;
-CREATE TABLE `has` (
-`companyID` varchar(200) NOT NULL,
-`depID` varchar(50),
-PRIMARY KEY (`companyId`,`depID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-# Create table associates which is the relationsip between companies and companyPolicy
-DROP TABLE IF EXISTS `associates`;
-CREATE TABLE `associates` (
-`companyID` varchar(200) NOT NULL,
-`policyID` varchar(50),
-PRIMARY KEY (`companyId`,`policyID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 # Create table belongs to which is the relationsip between department and employees
