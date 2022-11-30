@@ -100,57 +100,30 @@
     }
 </style>
 <body>
-<header>
-    <h1 style="text-align: center;font-size:200%;">MY PROXY</h1></header><div id="main">
+<header><h1 style="text-align: center;font-size:200%;">MY PROXY</h1></header><div id="main">
     <article>
         <h1 style="text-align: center;">PROFILE :: ADMIN</h1>
-        <%
-            String uid = (String)session.getAttribute("sid");
-            String db = "cs157a";
-            String user; // assumes database name is the same as username
-            user = "root";
-            String password = "xx";
-            try {
-                java.sql.Connection con;
-                Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/my_proxy?autoReconnect=true&useSSL=false",user, password);
-                Statement stmt = con.createStatement();
+        <form action="/action_page.php" method="post">
+            <div class="container">
+                <label for="username"><b>Username</b></label>
+                <input type="text"  name="uname" readonly>
 
-                PreparedStatement pst = con.prepareStatement("SELECT * FROM accounts where userName = ?");
-                pst.setString(1, uid);
-                ResultSet rs = pst.executeQuery();
-                while (rs.next()) {
-        %>
-        <%  out.println("<form action=\" \" method=\"\">");%>
+                <label for="password"><b>Password</b></label>
+                <input type="password" name="psw" readonly>
 
-        <%  out.println("<label for=\"username\"><b>Username</b></label>");%>
-        <%  out.println("<input type=\"text\""  +  "name=\"uname\" value=\""+ rs.getString(1)+ "\" readonly>");%>
+                <label for="email"><b>Email</b></label>
+                <input type="text" name="email" readonly>
 
-        <%  out.println("<label for=\"username\"><b>Password</b></label>");%>
-        <%  out.println("<input type=\"text\""  +  "name=\"uname\" value=\""+ rs.getInt(2)+ "\" readonly>");%>
+                <label for="role"><b>Role</b></label>
+                <input type="text" name="role" readonly>
 
-        <%  out.println("<label for=\"username\"><b>Email</b></label>");%>
-        <%  out.println("<input type=\"text\""  +  "name=\"uname\" value=\""+ rs.getString(3)+ "\" readonly>");%>
+                <label for="department"><b>Department</b></label>
+                <input type="text" name="department" readonly>
 
-        <%  out.println("<label for=\"username\"><b>Role</b></label>");%>
-        <%  out.println("<input type=\"text\""  +  "name=\"uname\" value=\""+ rs.getDate(4)+ "\" readonly>");%>
-
-        <%  out.println("<label for=\"username\"><b>Department</b></label>");%>
-        <%  out.println("<input type=\"text\""  +  "name=\"uname\" value=\""+ rs.getString(3)+ "\" readonly>");%>
-
-        <%  out.println("<label for=\"username\"><b>Company</b></label>");%>
-        <%  out.println("<input type=\"text\""  +  "name=\"uname\" value=\""+ rs.getDate(4)+ "\" readonly>");%>
-        <%  out.println("</form>");%>
-        <%
-                }
-                rs.close();
-                stmt.close();
-                con.close();
-            } catch(SQLException e) {
-                out.println("SQLException caught: " + e.getMessage());
-            }
-        %>
-
+                <label for="company"><b>Company</b></label>
+                <input type="text" name="company" readonly>
+            </div>
+        </form>
 
         <form action="/login.jsp">
             <table style="width:25%">

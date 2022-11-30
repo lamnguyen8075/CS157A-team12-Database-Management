@@ -82,25 +82,40 @@
     <article><h2></h2></article>
     <nav>
         <h1 style="text-align: center;">REGISTER</h1>
-        <form action="/action_page.php" method="post">
+        <form action="regis.jsp" method="post">
             <div class="container">
                 <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Username" name="uname" required>
+                <input type="text" placeholder="Username" name="username" required>
 
                 <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Password" name="psw" required>
+                <input type="password" placeholder="Password" name="password" required>
 
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Username" name="email" required>
+                <input type="text" placeholder="Enter Email" name="email" required>
 
-                <label for="role"><b>Role</b></label>
-                <input type="text" placeholder="Enter Role" name="role" required>
+                <label for="role"><b>First Name</b></label>
+                <input type="text" placeholder="Enter Position" name="firstName" required>
 
-                <label for="department"><b>Department</b></label>
-                <input type="text" placeholder="Enter Department" name="department" required>
+                <label for="role"><b>Last Name</b></label>
+                <input type="text" placeholder="Enter Position" name="lastName" required>
 
-                <label for="company"><b>Company</b></label>
-                <input type="text" placeholder="Enter Company" name="company" required>
+                <label for="role"><b>Address Line 1</b></label>
+                <input type="text" placeholder="Enter addressLine1" name="addressLine1" required>
+
+                <label for="role"><b>Address Line 2</b></label>
+                <input type="text" placeholder="Enter addressLine2" name="addressLine2" required>
+
+                <label for="role"><b>City</b></label>
+                <input type="text" placeholder="Enter City" name="city" required>
+
+                <label for="role"><b>Position</b></label>
+                <input type="text" placeholder="Enter Position" name="position" required>
+
+                <label for="role"><b>State</b></label>
+                <input type="text" placeholder="Enter State" name="state" required>
+
+                <label for="role"><b>Zipcode</b></label>
+                <input type="text" placeholder="Enter Postal" name="postal" required>
 
                 <button type="submit">Register</button>
             </div>
