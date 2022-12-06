@@ -99,6 +99,9 @@
                 <label for="role"><b>Last Name</b></label>
                 <input type="text" placeholder="Enter Position" name="lastName" required>
 
+                <label for="role"><b>Department</b></label>
+                <input type="text" placeholder="Enter Department" name="dept" required>
+
                 <label for="role"><b>Address Line 1</b></label>
                 <input type="text" placeholder="Enter addressLine1" name="addressLine1" required>
 
@@ -123,8 +126,7 @@
     </nav>
 </div>
 <footer>
-    <a href="http://localhost:8080/proxy_webapp_war/profile.jsp">PROFILE</a>
-    <a href="http://localhost:8080/proxy_webapp_war/login.jsp">LOGIN</a>
+    <a href="http://localhost:8080/proxy_webapp_war/logout.jsp">LOGOUT</a>
     <a href="http://localhost:8080/proxy_webapp_war/register.jsp">REGISTER</a>
     <a href="http://localhost:8080/proxy_webapp_war/siteAdmin.jsp">ADMIN</a>
     <a href="http://localhost:8080/proxy_webapp_war/siteUser.jsp">USER</a>

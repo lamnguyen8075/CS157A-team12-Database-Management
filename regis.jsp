@@ -1,19 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hongk
-  Date: 11/30/2022
-  Time: 11:35 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page import="java.sql.*" %>
 <%
     String db = "cs157a";
     String user; // assumes database name is the same as username
     user = "root";
-    String pwd = "xx";
+    String pwd = "Conheo130695";
     try {
         String uname = request.getParameter("username");
         String pass = request.getParameter("password");
+        String department = request.getParameter("dept");
 
         String fname = request.getParameter("firstName");
         String lname = request.getParameter("lastName");
@@ -25,11 +19,14 @@
         String email = request.getParameter("email");
         String position = request.getParameter("position");
 
+        Integer uid = (Integer)session.getAttribute("sid");
+        String uuid = uid.toString();
+
         java.sql.Connection conn;
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/my_proxy?autoReconnect=true&useSSL=false",user, pwd);
         Statement st=conn.createStatement();
-
+        Statement st1=conn.createStatement();
         PreparedStatement pst = conn.prepareStatement("Select userName from accounts where userName=?");
         pst.setString(1, uname);
         ResultSet rs = pst.executeQuery();
@@ -41,7 +38,10 @@
         else{
             int insertAccounts = st.executeUpdate("INSERT INTO accounts (userName, password) VALUES ('"+uname+"','"+pass+"')");
             int insertEmployees = st.executeUpdate("INSERT INTO employees (employeeID, firstName, lastName, addressLine1, addressLine2, city, state, postalCode, email, position) VALUES ('"+uname+"','"+fname+"','"+lname+"','"+addrLine1+"','"+addrLine2+"','"+city+"','"+state+"','"+postal+"','"+email+"','"+position+"')");
-            response.sendRedirect("/proxy_webapp_war/index.jsp");
+            int insertBelongsTo = st1.executeUpdate("INSERT INTO belongsto (deptname, uname) VALUES ('"+department+"','"+uname+"')");
+            int insertUserAccounts = st1.executeUpdate("INSERT INTO useraccounts (userid, adminid) VALUES ('"+uname+"','"+uuid+"')");
+
+            response.sendRedirect("/proxy_webapp_war/siteAdmin.jsp");
         }
 
 
