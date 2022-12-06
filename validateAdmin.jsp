@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hongk
-  Date: 11/30/2022
-  Time: 11:34 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.ResultSet" %>
@@ -13,7 +6,7 @@
     String db = "cs157a";
     String user; // assumes database name is the same as username
     user = "root";
-    String pwd = "xx";
+    String pwd = "Conheo130695";
     try {
 
 
@@ -28,13 +21,13 @@
         pst.setString(1, username);
         pst.setString(2, password);
         ResultSet rs = pst.executeQuery();
-        if(username == "9999"){
-            if(rs.next()){
-                session.setAttribute("sid",username);
-                response.sendRedirect("/proxy_webapp_war/loginAdmin.jsp");
-            }
+        if(rs.next()){
+            Integer uid = Integer.parseInt(username);
+            session.setAttribute("sid",uid);
+            response.sendRedirect("/proxy_webapp_war/siteAdmin.jsp");
         }
-
+        else
+            response.sendRedirect("/proxy_webapp_war/error.jsp");
     } catch(SQLException e) {
         out.println("SQLException caught: " + e.getMessage());
     }
