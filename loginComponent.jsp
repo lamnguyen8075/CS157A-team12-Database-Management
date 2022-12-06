@@ -5,7 +5,7 @@
   </article>
   <nav>
     <h1 style="text-align: center;">LOG IN</h1>
-    <form method="post" action="validate.jsp">
+    <form method="post" action="validateAdmin.jsp">
       <div class="container">
 
         <label for="username"><b>Username</b></label>
